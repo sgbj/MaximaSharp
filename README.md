@@ -8,7 +8,7 @@ What is Maxima?
 
 Using MaximaSharp
 -----------------
-Given the following lambda expressions declared in csharp:
+Given the following lambda expressions declared in C#:
 ```csharp
 Expression<Func<double, double>> f = x => 3 * Math.Pow(x, 2) + 2 * x 
 		+ Math.Pow(Math.Cos(x), 2) + Math.Pow(Math.Sin(x), 2);
