@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaximaSharp", "MaximaSharp\MaximaSharp.csproj", "{BB92EA20-C7F1-4330-9E1A-2C06EC24E587}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{82C0D399-B2AF-462F-B69B-AD78ECA9B5E8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BB92EA20-C7F1-4330-9E1A-2C06EC24E587}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB92EA20-C7F1-4330-9E1A-2C06EC24E587}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB92EA20-C7F1-4330-9E1A-2C06EC24E587}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB92EA20-C7F1-4330-9E1A-2C06EC24E587}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82C0D399-B2AF-462F-B69B-AD78ECA9B5E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82C0D399-B2AF-462F-B69B-AD78ECA9B5E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82C0D399-B2AF-462F-B69B-AD78ECA9B5E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82C0D399-B2AF-462F-B69B-AD78ECA9B5E8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
