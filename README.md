@@ -41,7 +41,7 @@ Console.WriteLine(h.Differentiate("y"));
 ```
 
 ### Integrating ###
-The definite and indefinite integrals can also be found:
+Definite and indefinite integrals can also be found:
 ```csharp
 Console.WriteLine(f.Integrate());
 Console.WriteLine(f.Integrate(0, 2));
@@ -67,6 +67,7 @@ Maxima.GnuPlot(@"
 Console.ReadLine();
 ```
 Produces the following graphs:
+
 ![Plot of x + 5 * cos(x)](http://farm3.staticflickr.com/2859/9458377507_b8deeb31a1_o.png)
 ![Plot of cos(u)*(cos(v)+3), sin(u)*(cos(v)+3), sin(v)](http://farm6.staticflickr.com/5321/9461158962_42356e823a_o.png)
 
