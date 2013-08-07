@@ -43,7 +43,7 @@ Console.WriteLine(h.Differentiate("y"));
 ### Integrating ###
 Definite and indefinite integrals can also be found:
 ```csharp
-Console.WriteLine(f.Integrate());
+Console.WriteLine(f.Integrate().Simplify());
 Console.WriteLine(f.Integrate(0, 2));
 Console.WriteLine(g.Integrate());
 Console.WriteLine(h.Integrate("y"));
