@@ -75,7 +75,7 @@ Evaluate functions:
 ```csharp
 Console.WriteLine(f.At(5));
 Console.WriteLine(g.At(10));
-// Output
+// Output:
 // 86
 // 30
 ```
@@ -86,7 +86,7 @@ Console.WriteLine(g.Plus(h));
 Console.WriteLine(g.Minus(h));
 Console.WriteLine(f.Times(g));
 Console.WriteLine(f.Over(g));
-// Output
+// Output:
 // (x, y, z) => (((2 * x) + 10) + ((3 * y) + z))
 // (x, y, z) => (((2 * x) + 10) - ((3 * y) + z))
 // x => (((((3 * Pow(x, 2)) + (2 * x)) + Pow(Cos(x), 2)) + Pow(Sin(x), 2)) * ((2 * x) + 10))
@@ -96,7 +96,7 @@ Console.WriteLine(f.Over(g));
 Evaluate string with Maxima:
 ```csharp
 Console.WriteLine(Maxima.Eval("x + 2 + 2 * x + 3 * 5"));
-// Output
+// Output:
 // 3*x+17
 ```
 
@@ -106,7 +106,7 @@ var expr = Maxima.ToExpression("double, double", "x", "10 * x + 5 * cos(x)")
 		as Expression<Func<double, double>>;
 Console.WriteLine(expr);
 Console.WriteLine(expr.Differentiate().At(0));
-// Output
+// Output:
 // x => ((10 * x) + (5 * Cos(x)))
 // 10
 ```
