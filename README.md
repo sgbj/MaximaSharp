@@ -13,7 +13,7 @@ Given the following lambda expressions declared in C#:
 Expression<Func<double, double>> f = x => 3 * Math.Pow(x, 2) + 2 * x 
 		+ Math.Pow(Math.Cos(x), 2) + Math.Pow(Math.Sin(x), 2);
 Expression<Func<double, double>> g = x => 2 * x + 5 * 2;
-Expression<Func<double, double, double>> h = (y, z) => y + z;
+Expression<Func<double, double, double>> h = (y, z) => 3 * y + z;
 ```
 
 ### Simplifying ###
