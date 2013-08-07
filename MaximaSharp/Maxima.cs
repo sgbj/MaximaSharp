@@ -45,7 +45,7 @@ namespace MaximaSharp
             {
                 return VBCodeProvider.CreateProvider("VB", new Dictionary<string, string>() { { "CompilerVersion", "v4.0" } })
                     .CompileAssemblyFromSource(new CompilerParameters(new[] { "System.Core.dll" }), string.Format(
-                    @"  Imports System
+               @"   Imports System
                     Imports System.Linq.Expressions
                     Public Class Program 
                         Public Shared Lambda As Expression(Of Func(Of {0})) = Function({1}) {2}
