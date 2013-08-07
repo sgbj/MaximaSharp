@@ -8,8 +8,8 @@ What is Maxima?
 
 Using MaximaSharp
 -----------------
-Given the following lambda expressions declared in C#:
-```C#
+Given the following lambda expressions declared in csharp:
+```csharp
 Expression<Func<double, double>> f = x => 3 * Math.Pow(x, 2) + 2 * x 
 		+ Math.Pow(Math.Cos(x), 2) + Math.Pow(Math.Sin(x), 2);
 Expression<Func<double, double>> g = x => 2 * x + 5 * 2;
@@ -18,7 +18,7 @@ Expression<Func<double, double, double>> h = (y, z) => y + z;
 
 ### Simplifying ###
 Simplifying functions is easy:
-```C#
+```csharp
 Console.WriteLine(f.Simplify());
 Console.WriteLine(g.Simplify());
 Console.WriteLine(h.Simplify());
@@ -30,7 +30,7 @@ Console.WriteLine(h.Simplify());
 
 ### Differentiating ###
 It's also possible to take the derivative of functions:
-```C#
+```csharp
 Console.WriteLine(f.Differentiate());
 Console.WriteLine(g.Differentiate());
 Console.WriteLine(h.Differentiate("y"));
@@ -42,7 +42,7 @@ Console.WriteLine(h.Differentiate("y"));
 
 ### Integrating ###
 The definite and indefinite integrals can also be found:
-```C#
+```csharp
 Console.WriteLine(f.Integrate());
 Console.WriteLine(f.Integrate(0, 2));
 Console.WriteLine(g.Integrate());
@@ -56,7 +56,7 @@ Console.WriteLine(h.Integrate("y"));
 
 ### Plotting ###
 Plot functions easily with gnuplot:
-```C#
+```csharp
 Maxima.GnuPlot(@"plot x+5*cos(x)");
 Maxima.GnuPlot(@"
 	set parametric 
@@ -72,7 +72,7 @@ Produces the following graphs:
 
 ### More stuff ###
 Evaluate functions:
-```C#
+```csharp
 Console.WriteLine(f.At(5));
 Console.WriteLine(g.At(10));
 // Output
@@ -81,7 +81,7 @@ Console.WriteLine(g.At(10));
 ```
 
 Perform basic operations on functions:
-```C#
+```csharp
 Console.WriteLine(g.Plus(h));
 Console.WriteLine(g.Minus(h));
 Console.WriteLine(f.Times(g));
@@ -94,14 +94,14 @@ Console.WriteLine(f.Over(g));
 ```
 
 Evaluate string with Maxima:
-```C#
+```csharp
 Console.WriteLine(Maxima.Eval("x + 2 + 2 * x + 3 * 5"));
 // Output
 // 3*x+17
 ```
 
 Convert strings back into expressions:
-```C#
+```csharp
 var expr = Maxima.ToExpression("double, double", "x", "10 * x + 5 * cos(x)") 
 		as Expression<Func<double, double>>;
 Console.WriteLine(expr);
