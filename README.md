@@ -93,7 +93,7 @@ Console.WriteLine(f.Over(g));
 // x => (((((3 * Pow(x, 2)) + (2 * x)) + Pow(Cos(x), 2)) + Pow(Sin(x), 2)) / ((2 * x) + 10))
 ```
 
-Evaluate string with Maxima:
+Evaluate strings with Maxima:
 ```csharp
 Console.WriteLine(Maxima.Eval("x + 2 + 2 * x + 3 * 5"));
 // Output:
