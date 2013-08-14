@@ -103,10 +103,9 @@ Console.WriteLine(Maxima.Eval("x + 2 + 2 * x + 3 * 5"));
 
 Convert strings back into expressions:
 ```csharp
-var expr = Maxima.ToExpression("double, double", "x", "10 * x + 5 * cos(x)") 
-		as Expression<Func<double, double>>;
+var expr = Maxima.ToExpression("double, double", "x", "10 * x + 5 * cos(x)");
 Console.WriteLine(expr);
-Console.WriteLine(expr.Differentiate().At(0));
+Console.WriteLine(expr.Differentiate().Simplify().At(0));
 // Output:
 // x => ((10 * x) + (5 * Cos(x)))
 // 10
