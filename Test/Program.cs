@@ -32,7 +32,7 @@ namespace Test
 
             Console.WriteLine(g.Plus(h));
             Console.WriteLine(g.Minus(h));
-            Console.WriteLine(f.Times(g));
+            Console.WriteLine(f.Times(g).Integrate().Simplify());
             Console.WriteLine(f.Over(g));
 
             Maxima.GnuPlot(@"plot x+5*cos(x)");

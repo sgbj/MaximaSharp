@@ -33,6 +33,8 @@ namespace MaximaSharp
 
             Process.StandardInput.WriteLine(string.Format("{0}$ grind({1});", string.Join("$", Functions), expr.ToLower()));
             var result = Process.StandardOutput.ReadLine();
+            while (!result.EndsWith("$"))
+                result += Process.StandardOutput.ReadLine();
             Process.StandardOutput.ReadLine();
             if (result.EndsWith("$")) return result.TrimEnd('$');
             Process = NewMaxima();
@@ -59,30 +61,29 @@ namespace MaximaSharp
             }
         }
 
-        private static Expression<T> EvalToExpression<T>(this Expression<T> expr, string format, params object[] args)
+        private static LambdaExpression EvalToExpression(this LambdaExpression expr, string format, params object[] args)
         {
             return ToExpression(string.Join(", ", expr.Type.GetGenericArguments().Select(t => t.Name)),
                                 string.Join(", ", expr.Parameters.Select(p => p.Name)),
-                                Eval(string.Format(format, args)))
-                                as Expression<T>;
+                                Eval(string.Format(format, args)));
         }
 
-        public static Expression<T> Simplify<T>(this Expression<T> expr)
+        public static LambdaExpression Simplify(this LambdaExpression expr)
         {
             return EvalToExpression(expr, "factor(fullratsimp(trigsimp({0})))", expr.Body);
         }
 
-        public static Expression<T> Differentiate<T>(this Expression<T> expr, string wrt = "x")
+        public static LambdaExpression Differentiate(this LambdaExpression expr, string wrt = "x")
         {
             return EvalToExpression(expr, "diff({0}, {1})", expr.Body, wrt);
         }
 
-        public static Expression<T> Integrate<T>(this Expression<T> expr, string wrt = "x")
+        public static LambdaExpression Integrate(this LambdaExpression expr, string wrt = "x")
         {
             return EvalToExpression(expr, "integrate({0}, {1})", expr.Body, wrt);
         }
 
-        public static Expression<T> Integrate<T>(this Expression<T> expr, int from, int to, string wrt = "x")
+        public static LambdaExpression Integrate(this LambdaExpression expr, int from, int to, string wrt = "x")
         {
             return EvalToExpression(expr, "integrate({0}, {1}, {2}, {3})", expr.Body, wrt, from, to);
         }
