@@ -85,15 +85,21 @@ Perform basic operations on functions:
 ```csharp
 Console.WriteLine(g.Plus(h));
 Console.WriteLine(g.Minus(h));
-Console.WriteLine(f.Times(g));
-Console.WriteLine(f.Over(g));
+Console.WriteLine(f.Times(g).Simplify());
+Console.WriteLine(f.Over(g).Simplify());
 // Output:
 // (x, y, z) => (((2 * x) + 10) + ((3 * y) + z))
 // (x, y, z) => (((2 * x) + 10) - ((3 * y) + z))
-// x => (((((3 * Pow(x, 2)) + (2 * x)) + Pow(Cos(x), 2)) + Pow(Sin(x), 2)) * ((2 * x) + 10))
-// x => (((((3 * Pow(x, 2)) + (2 * x)) + Pow(Cos(x), 2)) + Pow(Sin(x), 2)) / ((2 * x) + 10))
+// x => ((2 * (x + 5)) * (((3 * (x ^ 2)) + (2 * x)) + 1))
+// x => ((((3 * (x ^ 2)) + (2 * x)) + 1) / (2 * (x + 5)))
 ```
+<br/>
+***
 
+__Note:__ evaluating functions and basic operations are performed without the use of Maxima.
+
+***
+<br/>
 Evaluate strings with Maxima:
 ```csharp
 Console.WriteLine(Maxima.Eval("x + 2 + 2 * x + 3 * 5"));
@@ -110,3 +116,10 @@ Console.WriteLine(expr.Differentiate().Simplify().At(0));
 // x => ((10 * x) + (5 * Cos(x)))
 // 10
 ```
+<br/>
+***
+
+__Example:__ converting user input to an expression that can be differentiated, integrated, plotted, or evaluated.
+
+***
+<br/>
