@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="MaximaSharp : A simple library that uses Maxima to do symbolic math in C# using lambda functions and expressions." />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>MaximaSharp</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/sgbj/MaximaSharp">View on GitHub</a>
+
+          <h1 id="project_title">MaximaSharp</h1>
+          <h2 id="project_tagline">A simple library that uses Maxima to do symbolic math in C# using lambda functions and expressions.</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/sgbj/MaximaSharp/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/sgbj/MaximaSharp/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a name="maximasharp" class="anchor" href="#maximasharp"><span class="octicon octicon-link"></span></a>MaximaSharp</h1>
+
+<p>MaximaSharp is a simple library that uses Maxima to perform symbolic algebra, plot functions, and do basic operations with C#'s lambda functions, expressions, and strings. Both examples and Maxima are included.</p>
+
+<h2>
+<a name="what-is-maxima" class="anchor" href="#what-is-maxima"><span class="octicon octicon-link"></span></a>What is Maxima?</h2>
+
+<blockquote>
+<p><a href="http://maxima.sourceforge.net/" title="Maxima">Maxima</a> is a system for the manipulation of symbolic and numerical expressions, including differentiation, integration, Taylor series, Laplace transforms, ordinary differential equations, systems of linear equations, polynomials, and sets, lists, vectors, matrices, and tensors. Maxima yields high precision numeric results by using exact fractions, arbitrary precision integers, and variable precision floating point numbers. Maxima can plot functions and data in two and three dimensions.</p>
+</blockquote>
+
+<h2>
+<a name="using-maximasharp" class="anchor" href="#using-maximasharp"><span class="octicon octicon-link"></span></a>Using MaximaSharp</h2>
+
+<p>Given the following lambda expressions declared in C#:</p>
+
+<div class="highlight"><pre><span class="n">Expression</span><span class="p">&lt;</span><span class="n">Func</span><span class="p">&lt;</span><span class="kt">double</span><span class="p">,</span> <span class="kt">double</span><span class="p">&gt;&gt;</span> <span class="n">f</span> <span class="p">=</span> <span class="n">x</span> <span class="p">=&gt;</span> <span class="m">3</span> <span class="p">*</span> <span class="n">Math</span><span class="p">.</span><span class="n">Pow</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="m">2</span><span class="p">)</span> <span class="p">+</span> <span class="m">2</span> <span class="p">*</span> <span class="n">x</span> 
+            <span class="p">+</span> <span class="n">Math</span><span class="p">.</span><span class="n">Pow</span><span class="p">(</span><span class="n">Math</span><span class="p">.</span><span class="n">Cos</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="m">2</span><span class="p">)</span> <span class="p">+</span> <span class="n">Math</span><span class="p">.</span><span class="n">Pow</span><span class="p">(</span><span class="n">Math</span><span class="p">.</span><span class="n">Sin</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="m">2</span><span class="p">);</span>
+<span class="n">Expression</span><span class="p">&lt;</span><span class="n">Func</span><span class="p">&lt;</span><span class="kt">double</span><span class="p">,</span> <span class="kt">double</span><span class="p">&gt;&gt;</span> <span class="n">g</span> <span class="p">=</span> <span class="n">x</span> <span class="p">=&gt;</span> <span class="m">2</span> <span class="p">*</span> <span class="n">x</span> <span class="p">+</span> <span class="m">5</span> <span class="p">*</span> <span class="m">2</span><span class="p">;</span>
+<span class="n">Expression</span><span class="p">&lt;</span><span class="n">Func</span><span class="p">&lt;</span><span class="kt">double</span><span class="p">,</span> <span class="kt">double</span><span class="p">,</span> <span class="kt">double</span><span class="p">&gt;&gt;</span> <span class="n">h</span> <span class="p">=</span> <span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="m">3</span> <span class="p">*</span> <span class="n">y</span> <span class="p">+</span> <span class="n">z</span><span class="p">;</span>
+</pre></div>
+
+<h3>
+<a name="simplifying" class="anchor" href="#simplifying"><span class="octicon octicon-link"></span></a>Simplifying</h3>
+
+<p>Simplifying functions is easy:</p>
+
+<div class="highlight"><pre><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">f</span><span class="p">.</span><span class="n">Simplify</span><span class="p">());</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">g</span><span class="p">.</span><span class="n">Simplify</span><span class="p">());</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">h</span><span class="p">.</span><span class="n">Simplify</span><span class="p">());</span>
+<span class="c1">// Output:</span>
+<span class="c1">// x =&gt; (((3 * (x ^ 2)) + (2 * x)) + 1)</span>
+<span class="c1">// x =&gt; (2 * (x + 5))</span>
+<span class="c1">// (y, z) =&gt; (z + (3 * y))</span>
+</pre></div>
+
+<h3>
+<a name="differentiating" class="anchor" href="#differentiating"><span class="octicon octicon-link"></span></a>Differentiating</h3>
+
+<p>It's also possible to take the derivative of functions:</p>
+
+<div class="highlight"><pre><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">f</span><span class="p">.</span><span class="n">Differentiate</span><span class="p">());</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">g</span><span class="p">.</span><span class="n">Differentiate</span><span class="p">());</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">h</span><span class="p">.</span><span class="n">Differentiate</span><span class="p">(</span><span class="s">"y"</span><span class="p">));</span>
+<span class="c1">// Output:</span>
+<span class="c1">// x =&gt; ((6 * x) + 2)</span>
+<span class="c1">// x =&gt; 2</span>
+<span class="c1">// (y, z) =&gt; 3</span>
+</pre></div>
+
+<h3>
+<a name="integrating" class="anchor" href="#integrating"><span class="octicon octicon-link"></span></a>Integrating</h3>
+
+<p>Definite and indefinite integrals can also be found:</p>
+
+<div class="highlight"><pre><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">f</span><span class="p">.</span><span class="n">Integrate</span><span class="p">().</span><span class="n">Simplify</span><span class="p">());</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">f</span><span class="p">.</span><span class="n">Integrate</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">2</span><span class="p">));</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">g</span><span class="p">.</span><span class="n">Integrate</span><span class="p">());</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">h</span><span class="p">.</span><span class="n">Integrate</span><span class="p">(</span><span class="s">"y"</span><span class="p">));</span>
+<span class="c1">// Output:</span>
+<span class="c1">// x =&gt; (x * (((x ^ 2) + x) + 1))</span>
+<span class="c1">// x =&gt; 14</span>
+<span class="c1">// x =&gt; ((x ^ 2) + (10 * x))</span>
+<span class="c1">// (y, z) =&gt; ((y * z) + ((3 * (y ^ 2)) / 2))</span>
+</pre></div>
+
+<h3>
+<a name="plotting" class="anchor" href="#plotting"><span class="octicon octicon-link"></span></a>Plotting</h3>
+
+<p>Plot functions easily with gnuplot:</p>
+
+<div class="highlight"><pre><span class="n">Maxima</span><span class="p">.</span><span class="n">GnuPlot</span><span class="p">(</span><span class="s">@"plot x+5*cos(x)"</span><span class="p">);</span>
+<span class="n">Maxima</span><span class="p">.</span><span class="n">GnuPlot</span><span class="p">(</span><span class="s">@"</span>
+<span class="s">    set parametric </span>
+<span class="s">    set pm3d depthorder hidden3d</span>
+<span class="s">    set isosamples 30, 20</span>
+<span class="s">    splot [-pi:pi][-pi:pi] cos(u)*(cos(v)+3), sin(u)*(cos(v)+3), sin(v) w pm</span>
+<span class="s">"</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">ReadLine</span><span class="p">();</span>
+</pre></div>
+
+<p>Produces the following graphs:</p>
+
+<p><img src="http://farm3.staticflickr.com/2859/9458377507_b8deeb31a1_o.png" alt="Plot of x + 5 * cos(x)"><img src="http://farm6.staticflickr.com/5321/9461158962_42356e823a_o.png" alt="Plot of cos(u)*(cos(v)+3), sin(u)*(cos(v)+3), sin(v)"></p>
+
+<h3>
+<a name="more-stuff" class="anchor" href="#more-stuff"><span class="octicon octicon-link"></span></a>More stuff</h3>
+
+<p>Evaluate functions:</p>
+
+<div class="highlight"><pre><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">f</span><span class="p">.</span><span class="n">At</span><span class="p">(</span><span class="m">5</span><span class="p">));</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">g</span><span class="p">.</span><span class="n">At</span><span class="p">(</span><span class="m">10</span><span class="p">));</span>
+<span class="c1">// Output:</span>
+<span class="c1">// 86</span>
+<span class="c1">// 30</span>
+</pre></div>
+
+<p>Perform basic operations on functions:</p>
+
+<div class="highlight"><pre><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">g</span><span class="p">.</span><span class="n">Plus</span><span class="p">(</span><span class="n">h</span><span class="p">));</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">g</span><span class="p">.</span><span class="n">Minus</span><span class="p">(</span><span class="n">h</span><span class="p">));</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">f</span><span class="p">.</span><span class="n">Times</span><span class="p">(</span><span class="n">g</span><span class="p">).</span><span class="n">Simplify</span><span class="p">());</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">f</span><span class="p">.</span><span class="n">Over</span><span class="p">(</span><span class="n">g</span><span class="p">).</span><span class="n">Simplify</span><span class="p">());</span>
+<span class="c1">// Output:</span>
+<span class="c1">// (x, y, z) =&gt; (((2 * x) + 10) + ((3 * y) + z))</span>
+<span class="c1">// (x, y, z) =&gt; (((2 * x) + 10) - ((3 * y) + z))</span>
+<span class="c1">// x =&gt; ((2 * (x + 5)) * (((3 * (x ^ 2)) + (2 * x)) + 1))</span>
+<span class="c1">// x =&gt; ((((3 * (x ^ 2)) + (2 * x)) + 1) / (2 * (x + 5)))</span>
+</pre></div>
+
+<p><br></p>
+
+<hr><p><strong>Note:</strong> evaluating functions and basic operations are performed without the use of Maxima.</p>
+
+<hr><p><br>
+Evaluate strings with Maxima:</p>
+
+<div class="highlight"><pre><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">Maxima</span><span class="p">.</span><span class="n">Eval</span><span class="p">(</span><span class="s">"x + 2 + 2 * x + 3 * 5"</span><span class="p">));</span>
+<span class="c1">// Output:</span>
+<span class="c1">// 3*x+17</span>
+</pre></div>
+
+<p>Convert strings back into expressions:</p>
+
+<div class="highlight"><pre><span class="kt">var</span> <span class="n">expr</span> <span class="p">=</span> <span class="n">Maxima</span><span class="p">.</span><span class="n">ToExpression</span><span class="p">(</span><span class="s">"double, double"</span><span class="p">,</span> <span class="s">"x"</span><span class="p">,</span> <span class="s">"10 * x + 5 * cos(x)"</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">expr</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">expr</span><span class="p">.</span><span class="n">Differentiate</span><span class="p">().</span><span class="n">Simplify</span><span class="p">().</span><span class="n">At</span><span class="p">(</span><span class="m">0</span><span class="p">));</span>
+<span class="c1">// Output:</span>
+<span class="c1">// x =&gt; ((10 * x) + (5 * Cos(x)))</span>
+<span class="c1">// 10</span>
+</pre></div>
+
+<p><br></p>
+
+<hr><p><strong>Example:</strong> converting user input to an expression that can be differentiated, integrated, plotted, or evaluated.</p>
+
+<hr><p><br></p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">MaximaSharp maintained by <a href="https://github.com/sgbj">sgbj</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
