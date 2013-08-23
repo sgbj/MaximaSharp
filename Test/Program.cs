@@ -12,28 +12,8 @@ namespace Test
             Expression<Func<double, double>> g = x => 2 * x + 5 * 2;
             Expression<Func<double, double, double>> h = (y, z) => y + z;
 
-            Console.WriteLine(f);
-            Console.WriteLine(f.Simplify());
-            Console.WriteLine(f.Integrate().Simplify());
-            Console.WriteLine(f.Integrate(0, 2));
-            Console.WriteLine(f.Differentiate());
-            Console.WriteLine(f.At(5));
-
-            Console.WriteLine();
-
-            Console.WriteLine(g);
-            Console.WriteLine(g.Simplify());
-            Console.WriteLine(g.Integrate().Simplify());
-            Console.WriteLine(g.Integrate(0, 2));
-            Console.WriteLine(g.Differentiate());
-            Console.WriteLine(g.At(5));
-
-            Console.WriteLine();
-
-            Console.WriteLine(g.Plus(h));
-            Console.WriteLine(g.Minus(h));
-            Console.WriteLine(f.Times(g).Integrate().Simplify());
-            Console.WriteLine(f.Over(g));
+            Console.WriteLine(f.Times(g).Simplify());
+            Console.WriteLine(f.Over(g).Simplify());
 
             Maxima.GnuPlot(@"plot x+5*cos(x)");
             Maxima.GnuPlot(@"
