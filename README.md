@@ -68,8 +68,8 @@ Console.ReadLine();
 ```
 Produces the following graphs:
 
-![Plot of x + 5 * cos(x)](http://farm3.staticflickr.com/2859/9458377507_b8deeb31a1_o.png)
-![Plot of cos(u)*(cos(v)+3), sin(u)*(cos(v)+3), sin(v)](http://farm6.staticflickr.com/5321/9461158962_42356e823a_o.png)
+![Plot of x + 5 * cos(x)](https://raw.github.com/sgbj/MaximaSharp/master/wavy.png)
+![Plot of cos(u)*(cos(v)+3), sin(u)*(cos(v)+3), sin(v)](https://raw.github.com/sgbj/MaximaSharp/master/cheerio.png)
 
 ### More stuff ###
 Evaluate functions:
